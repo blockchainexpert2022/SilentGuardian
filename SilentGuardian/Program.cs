@@ -48,26 +48,32 @@ class Program
 
     static void WatchServices()
     {
-        List<string> knownServices = ServiceController.GetServices().Select(s => s.ServiceName).ToList();
+        Dictionary<string, ServiceControllerStatus> knownServices = ServiceController.GetServices()
+            .ToDictionary(s => s.ServiceName, s => s.Status);
 
         // Vérifier toutes les 5 secondes si des services ont changé d'état
         System.Timers.Timer timer = new System.Timers.Timer(5000);
         timer.Elapsed += (sender, e) =>
         {
-            var currentServices = ServiceController.GetServices().Select(s => s.ServiceName).ToList();
+            var currentServices = ServiceController.GetServices()
+                .ToDictionary(s => s.ServiceName, s => s.Status);
 
-            // Détecter les nouveaux services démarrés
-            var newServices = currentServices.Except(knownServices).ToList();
-            foreach (var service in newServices)
+            // Détecter les services qui ont démarré
+            foreach (var service in currentServices)
             {
-                Console.WriteLine($"[Service] Démarré : {service} | RAM dispo : {GetAvailableRAM()} MB");
+                if (knownServices.ContainsKey(service.Key) && knownServices[service.Key] != ServiceControllerStatus.Running && service.Value == ServiceControllerStatus.Running)
+                {
+                    Console.WriteLine($"[Service] Démarré : {service.Key} | RAM dispo : {GetAvailableRAM()} MB");
+                }
             }
 
-            // Détecter les services arrêtés
-            var stoppedServices = knownServices.Except(currentServices).ToList();
-            foreach (var service in stoppedServices)
+            // Détecter les services qui se sont arrêtés
+            foreach (var service in knownServices)
             {
-                Console.WriteLine($"[Service] Arrêté : {service} | RAM dispo : {GetAvailableRAM()} MB");
+                if (currentServices.ContainsKey(service.Key) && service.Value == ServiceControllerStatus.Running && currentServices[service.Key] != ServiceControllerStatus.Running)
+                {
+                    Console.WriteLine($"[Service] Arrêté : {service.Key} | RAM dispo : {GetAvailableRAM()} MB");
+                }
             }
 
             // Mettre à jour la liste des services connus
