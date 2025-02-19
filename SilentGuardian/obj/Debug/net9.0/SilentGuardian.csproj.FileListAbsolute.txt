@@ -22,3 +22,4 @@ C:\Users\WDAGUtilityAccount\RiderProjects\SilentGuardian\SilentGuardian\obj\Debu
 C:\Users\WDAGUtilityAccount\RiderProjects\SilentGuardian\SilentGuardian\obj\Debug\net9.0\SilentGuardian.pdb
 C:\Users\WDAGUtilityAccount\RiderProjects\SilentGuardian\SilentGuardian\obj\Debug\net9.0\SilentGuardian.genruntimeconfig.cache
 C:\Users\WDAGUtilityAccount\RiderProjects\SilentGuardian\SilentGuardian\obj\Debug\net9.0\ref\SilentGuardian.dll
+C:\Users\WDAGUtilityAccount\RiderProjects\SilentGuardian\SilentGuardian\obj\Debug\net9.0\SilentGuardian.sourcelink.json

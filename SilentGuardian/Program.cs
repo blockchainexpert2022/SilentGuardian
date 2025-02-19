@@ -23,34 +23,52 @@ class Program
 
     static void WatchProcesses()
     {
+        // Détecter les nouveaux processus lancés
         ManagementEventWatcher startWatcher = new ManagementEventWatcher(
             new WqlEventQuery("SELECT * FROM Win32_ProcessStartTrace"));
-
         startWatcher.EventArrived += (sender, e) =>
         {
             string processName = e.NewEvent["ProcessName"]?.ToString();
-            Console.WriteLine($"[Processus] Nouveau processus démarré : {processName}");
+            Console.WriteLine($"[Processus] Démarré : {processName}");
         };
-
         startWatcher.Start();
+
+        // Détecter les processus arrêtés
+        ManagementEventWatcher stopWatcher = new ManagementEventWatcher(
+            new WqlEventQuery("SELECT * FROM Win32_ProcessStopTrace"));
+        stopWatcher.EventArrived += (sender, e) =>
+        {
+            string processName = e.NewEvent["ProcessName"]?.ToString();
+            Console.WriteLine($"[Processus] Arrêté : {processName}");
+        };
+        stopWatcher.Start();
     }
 
     static void WatchServices()
     {
         List<string> knownServices = ServiceController.GetServices().Select(s => s.ServiceName).ToList();
 
-        // Vérifier toutes les 5 secondes les nouveaux services
+        // Vérifier toutes les 5 secondes si des services ont changé d'état
         System.Timers.Timer timer = new System.Timers.Timer(5000);
         timer.Elapsed += (sender, e) =>
         {
             var currentServices = ServiceController.GetServices().Select(s => s.ServiceName).ToList();
 
+            // Détecter les nouveaux services démarrés
             var newServices = currentServices.Except(knownServices).ToList();
             foreach (var service in newServices)
             {
-                Console.WriteLine($"[Service] Nouveau service détecté : {service}");
+                Console.WriteLine($"[Service] Démarré : {service}");
             }
 
+            // Détecter les services arrêtés
+            var stoppedServices = knownServices.Except(currentServices).ToList();
+            foreach (var service in stoppedServices)
+            {
+                Console.WriteLine($"[Service] Arrêté : {service}");
+            }
+
+            // Mettre à jour la liste des services connus
             knownServices = currentServices;
         };
 
