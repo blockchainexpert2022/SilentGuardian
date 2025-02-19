@@ -8,12 +8,29 @@
     ".NETCoreApp,Version=v9.0": {
       "SilentGuardian/1.0.0": {
         "dependencies": {
+          "Microsoft.NETFramework.ReferenceAssemblies": "1.0.3",
+          "Microsoft.NETFramework.ReferenceAssemblies.net461": "1.0.3",
           "System.Diagnostics.PerformanceCounter": "9.0.2",
           "System.Management": "9.0.2",
-          "System.ServiceProcess.ServiceController": "9.0.2"
+          "System.ServiceProcess.ServiceController": "9.0.2",
+          "Terminal.Gui.Forms": "0.1.0"
         },
         "runtime": {
           "SilentGuardian.dll": {}
+        }
+      },
+      "Microsoft.NETFramework.ReferenceAssemblies/1.0.3": {
+        "dependencies": {
+          "Microsoft.NETFramework.ReferenceAssemblies.net461": "1.0.3"
+        }
+      },
+      "Microsoft.NETFramework.ReferenceAssemblies.net461/1.0.3": {},
+      "NStack.Core/0.11.0": {
+        "runtime": {
+          "lib/netstandard1.5/NStack.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "System.CodeDom/9.0.2": {
@@ -122,6 +139,47 @@
             "fileVersion": "9.0.225.6610"
           }
         }
+      },
+      "System.ValueTuple/4.4.0": {},
+      "Terminal.Gui/0.16.0": {
+        "dependencies": {
+          "NStack.Core": "0.11.0",
+          "System.ValueTuple": "4.4.0"
+        },
+        "runtime": {
+          "lib/netcoreapp2.0/Terminal.Gui.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "Terminal.Gui.Forms/0.1.0": {
+        "dependencies": {
+          "Terminal.Gui": "0.16.0",
+          "Xamarin.Forms": "3.1.0.697729"
+        },
+        "runtime": {
+          "lib/net471/Terminal.Gui.Forms.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "Xamarin.Forms/3.1.0.697729": {
+        "runtime": {
+          "lib/netstandard2.0/Xamarin.Forms.Core.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.0.0.0"
+          },
+          "lib/netstandard2.0/Xamarin.Forms.Platform.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          },
+          "lib/netstandard2.0/Xamarin.Forms.Xaml.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.0.0.0"
+          }
+        }
       }
     }
   },
@@ -130,6 +188,27 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "Microsoft.NETFramework.ReferenceAssemblies/1.0.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-vUc9Npcs14QsyOD01tnv/m8sQUnGTGOw1BCmKcv77LBJY7OxhJ+zJF7UD/sCL3lYNFuqmQEVlkfS4Quif6FyYg==",
+      "path": "microsoft.netframework.referenceassemblies/1.0.3",
+      "hashPath": "microsoft.netframework.referenceassemblies.1.0.3.nupkg.sha512"
+    },
+    "Microsoft.NETFramework.ReferenceAssemblies.net461/1.0.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-AmOJZwCqnOCNp6PPcf9joyogScWLtwy0M1WkqfEQ0M9nYwyDD7EX9ZjscKS5iYnyvteX7kzSKFCKt9I9dXA6mA==",
+      "path": "microsoft.netframework.referenceassemblies.net461/1.0.3",
+      "hashPath": "microsoft.netframework.referenceassemblies.net461.1.0.3.nupkg.sha512"
+    },
+    "NStack.Core/0.11.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-LQrIt/ZS1+CXAXDN/1nEZuoyOEyrAqQVD9r5sWce22JkwMOHc3NUq1FmBkKdCjZzWJcooupMPvc8IQuQqADSRg==",
+      "path": "nstack.core/0.11.0",
+      "hashPath": "nstack.core.0.11.0.nupkg.sha512"
     },
     "System.CodeDom/9.0.2": {
       "type": "package",
@@ -179,6 +258,34 @@
       "sha512": "sha512-c69iiGEZ4xUv8aZTFd45K4SM08L2NLepihJ5vAb7Ekzgtk2Y8bUwt+3PQVstUl020dXW16R8hpiq/RZuzFFVyw==",
       "path": "system.serviceprocess.servicecontroller/9.0.2",
       "hashPath": "system.serviceprocess.servicecontroller.9.0.2.nupkg.sha512"
+    },
+    "System.ValueTuple/4.4.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-BahUww/+mdP4ARCAh2RQhQTg13wYLVrBb9SYVgW8ZlrwjraGCXHGjo0oIiUfZ34LUZkMMR+RAzR7dEY4S1HeQQ==",
+      "path": "system.valuetuple/4.4.0",
+      "hashPath": "system.valuetuple.4.4.0.nupkg.sha512"
+    },
+    "Terminal.Gui/0.16.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-wAO+belV8Jvu708u6/OIBsNGrDY3kJnXzD/EuFcjxEaAGHcEF7OABo+7Ct0Kfl+8c4KAhm0dFLqSIMusYBrfUw==",
+      "path": "terminal.gui/0.16.0",
+      "hashPath": "terminal.gui.0.16.0.nupkg.sha512"
+    },
+    "Terminal.Gui.Forms/0.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-2fAgINJ2DgJJmkmxz27HoNkRwW5m7JxHgOBKv01Hj+CPJMCfK9NizTgL7cvbDTTsuURgRv3TCeZpzBLi8cza3w==",
+      "path": "terminal.gui.forms/0.1.0",
+      "hashPath": "terminal.gui.forms.0.1.0.nupkg.sha512"
+    },
+    "Xamarin.Forms/3.1.0.697729": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-6y1rnRKVqgRWpGy+mjlgf5cxRYiHsiGS4b51/AJxxkEyf7w1XJGzcLl4wV8Yjpv6/kKxsIBoAgqxIdFElQcNkA==",
+      "path": "xamarin.forms/3.1.0.697729",
+      "hashPath": "xamarin.forms.3.1.0.697729.nupkg.sha512"
     }
   }
 }

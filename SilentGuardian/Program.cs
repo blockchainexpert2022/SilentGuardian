@@ -25,17 +25,17 @@ class Program
 
     static void WatchProcesses()
     {
-        // Détecter les nouveaux processus lancés
         ManagementEventWatcher startWatcher = new ManagementEventWatcher(
             new WqlEventQuery("SELECT * FROM Win32_ProcessStartTrace"));
         startWatcher.EventArrived += (sender, e) =>
         {
             string processName = e.NewEvent["ProcessName"]?.ToString();
-            Console.WriteLine($"[Processus] Démarré : {processName} | RAM dispo : {GetAvailableRAM()} MB");
+            int processId = Convert.ToInt32(e.NewEvent["ProcessID"]);
+            string owner = GetProcessOwner(processId);
+            Console.WriteLine($"[Processus] Démarré : {processName} (Utilisateur : {owner}) | RAM dispo : {GetAvailableRAM()} MB");
         };
         startWatcher.Start();
 
-        // Détecter les processus arrêtés
         ManagementEventWatcher stopWatcher = new ManagementEventWatcher(
             new WqlEventQuery("SELECT * FROM Win32_ProcessStopTrace"));
         stopWatcher.EventArrived += (sender, e) =>
@@ -51,23 +51,21 @@ class Program
         Dictionary<string, ServiceControllerStatus> knownServices = ServiceController.GetServices()
             .ToDictionary(s => s.ServiceName, s => s.Status);
 
-        // Vérifier toutes les 5 secondes si des services ont changé d'état
         System.Timers.Timer timer = new System.Timers.Timer(5000);
         timer.Elapsed += (sender, e) =>
         {
             var currentServices = ServiceController.GetServices()
                 .ToDictionary(s => s.ServiceName, s => s.Status);
 
-            // Détecter les services qui ont démarré
             foreach (var service in currentServices)
             {
                 if (knownServices.ContainsKey(service.Key) && knownServices[service.Key] != ServiceControllerStatus.Running && service.Value == ServiceControllerStatus.Running)
                 {
-                    Console.WriteLine($"[Service] Démarré : {service.Key} | RAM dispo : {GetAvailableRAM()} MB");
+                    string user = GetServiceUser(service.Key);
+                    Console.WriteLine($"[Service] Démarré : {service.Key} (Utilisateur : {user}) | RAM dispo : {GetAvailableRAM()} MB");
                 }
             }
 
-            // Détecter les services qui se sont arrêtés
             foreach (var service in knownServices)
             {
                 if (currentServices.ContainsKey(service.Key) && service.Value == ServiceControllerStatus.Running && currentServices[service.Key] != ServiceControllerStatus.Running)
@@ -76,15 +74,56 @@ class Program
                 }
             }
 
-            // Mettre à jour la liste des services connus
             knownServices = currentServices;
         };
 
         timer.Start();
     }
 
+    static string GetProcessOwner(int processId)
+    {
+        try
+        {
+            string query = $"SELECT * FROM Win32_Process WHERE ProcessId = {processId}";
+            using (ManagementObjectSearcher searcher = new ManagementObjectSearcher(query))
+            {
+                foreach (ManagementObject obj in searcher.Get())
+                {
+                    object[] ownerInfo = new object[2];
+                    obj.InvokeMethod("GetOwner", ownerInfo);
+                    return ownerInfo[0]?.ToString() ?? "Inconnu";
+                }
+            }
+        }
+        catch (Exception)
+        {
+            return "Inconnu";
+        }
+        return "Inconnu";
+    }
+
+    static string GetServiceUser(string serviceName)
+    {
+        try
+        {
+            string query = $"SELECT StartName FROM Win32_Service WHERE Name = '{serviceName}'";
+            using (ManagementObjectSearcher searcher = new ManagementObjectSearcher(query))
+            {
+                foreach (ManagementObject obj in searcher.Get())
+                {
+                    return obj["StartName"]?.ToString() ?? "Système";
+                }
+            }
+        }
+        catch (Exception)
+        {
+            return "Inconnu";
+        }
+        return "Inconnu";
+    }
+
     static float GetAvailableRAM()
     {
-        return ramCounter.NextValue(); // Retourne la RAM disponible en MB
+        return ramCounter.NextValue();
     }
 }

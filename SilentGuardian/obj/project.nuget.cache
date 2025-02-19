@@ -1,16 +1,34 @@
 {
   "version": 2,
-  "dgSpecHash": "66968wsa4Gw=",
+  "dgSpecHash": "Sw+GFKdArkQ=",
   "success": true,
   "projectFilePath": "C:\\Users\\WDAGUtilityAccount\\RiderProjects\\SilentGuardian\\SilentGuardian\\SilentGuardian.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\WDAGUtilityAccount\\.nuget\\packages\\microsoft.netframework.referenceassemblies\\1.0.3\\microsoft.netframework.referenceassemblies.1.0.3.nupkg.sha512",
+    "C:\\Users\\WDAGUtilityAccount\\.nuget\\packages\\microsoft.netframework.referenceassemblies.net461\\1.0.3\\microsoft.netframework.referenceassemblies.net461.1.0.3.nupkg.sha512",
+    "C:\\Users\\WDAGUtilityAccount\\.nuget\\packages\\nstack.core\\0.11.0\\nstack.core.0.11.0.nupkg.sha512",
     "C:\\Users\\WDAGUtilityAccount\\.nuget\\packages\\system.codedom\\9.0.2\\system.codedom.9.0.2.nupkg.sha512",
     "C:\\Users\\WDAGUtilityAccount\\.nuget\\packages\\system.configuration.configurationmanager\\9.0.2\\system.configuration.configurationmanager.9.0.2.nupkg.sha512",
     "C:\\Users\\WDAGUtilityAccount\\.nuget\\packages\\system.diagnostics.eventlog\\9.0.2\\system.diagnostics.eventlog.9.0.2.nupkg.sha512",
     "C:\\Users\\WDAGUtilityAccount\\.nuget\\packages\\system.diagnostics.performancecounter\\9.0.2\\system.diagnostics.performancecounter.9.0.2.nupkg.sha512",
     "C:\\Users\\WDAGUtilityAccount\\.nuget\\packages\\system.management\\9.0.2\\system.management.9.0.2.nupkg.sha512",
     "C:\\Users\\WDAGUtilityAccount\\.nuget\\packages\\system.security.cryptography.protecteddata\\9.0.2\\system.security.cryptography.protecteddata.9.0.2.nupkg.sha512",
-    "C:\\Users\\WDAGUtilityAccount\\.nuget\\packages\\system.serviceprocess.servicecontroller\\9.0.2\\system.serviceprocess.servicecontroller.9.0.2.nupkg.sha512"
+    "C:\\Users\\WDAGUtilityAccount\\.nuget\\packages\\system.serviceprocess.servicecontroller\\9.0.2\\system.serviceprocess.servicecontroller.9.0.2.nupkg.sha512",
+    "C:\\Users\\WDAGUtilityAccount\\.nuget\\packages\\system.valuetuple\\4.4.0\\system.valuetuple.4.4.0.nupkg.sha512",
+    "C:\\Users\\WDAGUtilityAccount\\.nuget\\packages\\terminal.gui\\0.16.0\\terminal.gui.0.16.0.nupkg.sha512",
+    "C:\\Users\\WDAGUtilityAccount\\.nuget\\packages\\terminal.gui.forms\\0.1.0\\terminal.gui.forms.0.1.0.nupkg.sha512",
+    "C:\\Users\\WDAGUtilityAccount\\.nuget\\packages\\xamarin.forms\\3.1.0.697729\\xamarin.forms.3.1.0.697729.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Terminal.Gui.Forms 0.1.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net9.0'. This package may not be fully compatible with your project.",
+      "libraryId": "Terminal.Gui.Forms",
+      "targetGraphs": [
+        "net9.0"
+      ]
+    }
+  ]
 }
