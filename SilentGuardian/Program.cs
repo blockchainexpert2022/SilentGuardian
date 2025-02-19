@@ -7,9 +7,11 @@ using System.Linq;
 
 class Program
 {
+    static PerformanceCounter ramCounter = new PerformanceCounter("Memory", "Available MBytes");
+
     static void Main()
     {
-        Console.WriteLine("Surveillance des processus et services en cours...");
+        Console.WriteLine("Surveillance des processus, services et RAM en cours...");
 
         // Surveillance des processus
         WatchProcesses();
@@ -29,7 +31,7 @@ class Program
         startWatcher.EventArrived += (sender, e) =>
         {
             string processName = e.NewEvent["ProcessName"]?.ToString();
-            Console.WriteLine($"[Processus] Démarré : {processName}");
+            Console.WriteLine($"[Processus] Démarré : {processName} | RAM dispo : {GetAvailableRAM()} MB");
         };
         startWatcher.Start();
 
@@ -39,7 +41,7 @@ class Program
         stopWatcher.EventArrived += (sender, e) =>
         {
             string processName = e.NewEvent["ProcessName"]?.ToString();
-            Console.WriteLine($"[Processus] Arrêté : {processName}");
+            Console.WriteLine($"[Processus] Arrêté : {processName} | RAM dispo : {GetAvailableRAM()} MB");
         };
         stopWatcher.Start();
     }
@@ -58,14 +60,14 @@ class Program
             var newServices = currentServices.Except(knownServices).ToList();
             foreach (var service in newServices)
             {
-                Console.WriteLine($"[Service] Démarré : {service}");
+                Console.WriteLine($"[Service] Démarré : {service} | RAM dispo : {GetAvailableRAM()} MB");
             }
 
             // Détecter les services arrêtés
             var stoppedServices = knownServices.Except(currentServices).ToList();
             foreach (var service in stoppedServices)
             {
-                Console.WriteLine($"[Service] Arrêté : {service}");
+                Console.WriteLine($"[Service] Arrêté : {service} | RAM dispo : {GetAvailableRAM()} MB");
             }
 
             // Mettre à jour la liste des services connus
@@ -73,5 +75,10 @@ class Program
         };
 
         timer.Start();
+    }
+
+    static float GetAvailableRAM()
+    {
+        return ramCounter.NextValue(); // Retourne la RAM disponible en MB
     }
 }

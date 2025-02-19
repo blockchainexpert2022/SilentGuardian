@@ -23,3 +23,7 @@ C:\Users\WDAGUtilityAccount\RiderProjects\SilentGuardian\SilentGuardian\obj\Debu
 C:\Users\WDAGUtilityAccount\RiderProjects\SilentGuardian\SilentGuardian\obj\Debug\net9.0\SilentGuardian.genruntimeconfig.cache
 C:\Users\WDAGUtilityAccount\RiderProjects\SilentGuardian\SilentGuardian\obj\Debug\net9.0\ref\SilentGuardian.dll
 C:\Users\WDAGUtilityAccount\RiderProjects\SilentGuardian\SilentGuardian\obj\Debug\net9.0\SilentGuardian.sourcelink.json
+C:\Users\WDAGUtilityAccount\RiderProjects\SilentGuardian\SilentGuardian\bin\Debug\net9.0\System.Configuration.ConfigurationManager.dll
+C:\Users\WDAGUtilityAccount\RiderProjects\SilentGuardian\SilentGuardian\bin\Debug\net9.0\System.Diagnostics.PerformanceCounter.dll
+C:\Users\WDAGUtilityAccount\RiderProjects\SilentGuardian\SilentGuardian\bin\Debug\net9.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\WDAGUtilityAccount\RiderProjects\SilentGuardian\SilentGuardian\bin\Debug\net9.0\runtimes\win\lib\net9.0\System.Diagnostics.PerformanceCounter.dll
