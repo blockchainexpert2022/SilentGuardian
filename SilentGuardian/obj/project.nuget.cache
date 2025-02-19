@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "YkjcckuNsB0=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\WDAGUtilityAccount\\RiderProjects\\SilentGuardian\\SilentGuardian\\SilentGuardian.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\WDAGUtilityAccount\\.nuget\\packages\\system.codedom\\9.0.2\\system.codedom.9.0.2.nupkg.sha512",
+    "C:\\Users\\WDAGUtilityAccount\\.nuget\\packages\\system.diagnostics.eventlog\\9.0.2\\system.diagnostics.eventlog.9.0.2.nupkg.sha512",
+    "C:\\Users\\WDAGUtilityAccount\\.nuget\\packages\\system.management\\9.0.2\\system.management.9.0.2.nupkg.sha512",
+    "C:\\Users\\WDAGUtilityAccount\\.nuget\\packages\\system.serviceprocess.servicecontroller\\9.0.2\\system.serviceprocess.servicecontroller.9.0.2.nupkg.sha512"
+  ],
+  "logs": []
+}

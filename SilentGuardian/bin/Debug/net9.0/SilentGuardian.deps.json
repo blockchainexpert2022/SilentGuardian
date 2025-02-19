@@ -1,0 +1,123 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v9.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v9.0": {
+      "SilentGuardian/1.0.0": {
+        "dependencies": {
+          "System.Management": "9.0.2",
+          "System.ServiceProcess.ServiceController": "9.0.2"
+        },
+        "runtime": {
+          "SilentGuardian.dll": {}
+        }
+      },
+      "System.CodeDom/9.0.2": {
+        "runtime": {
+          "lib/net9.0/System.CodeDom.dll": {
+            "assemblyVersion": "9.0.0.0",
+            "fileVersion": "9.0.225.6610"
+          }
+        }
+      },
+      "System.Diagnostics.EventLog/9.0.2": {
+        "runtime": {
+          "lib/net9.0/System.Diagnostics.EventLog.dll": {
+            "assemblyVersion": "9.0.0.0",
+            "fileVersion": "9.0.225.6610"
+          }
+        },
+        "runtimeTargets": {
+          "runtimes/win/lib/net9.0/System.Diagnostics.EventLog.Messages.dll": {
+            "rid": "win",
+            "assetType": "runtime",
+            "assemblyVersion": "9.0.0.0",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win/lib/net9.0/System.Diagnostics.EventLog.dll": {
+            "rid": "win",
+            "assetType": "runtime",
+            "assemblyVersion": "9.0.0.0",
+            "fileVersion": "9.0.225.6610"
+          }
+        }
+      },
+      "System.Management/9.0.2": {
+        "dependencies": {
+          "System.CodeDom": "9.0.2"
+        },
+        "runtime": {
+          "lib/net9.0/System.Management.dll": {
+            "assemblyVersion": "9.0.0.2",
+            "fileVersion": "9.0.225.6610"
+          }
+        },
+        "runtimeTargets": {
+          "runtimes/win/lib/net9.0/System.Management.dll": {
+            "rid": "win",
+            "assetType": "runtime",
+            "assemblyVersion": "9.0.0.2",
+            "fileVersion": "9.0.225.6610"
+          }
+        }
+      },
+      "System.ServiceProcess.ServiceController/9.0.2": {
+        "dependencies": {
+          "System.Diagnostics.EventLog": "9.0.2"
+        },
+        "runtime": {
+          "lib/net9.0/System.ServiceProcess.ServiceController.dll": {
+            "assemblyVersion": "9.0.0.2",
+            "fileVersion": "9.0.225.6610"
+          }
+        },
+        "runtimeTargets": {
+          "runtimes/win/lib/net9.0/System.ServiceProcess.ServiceController.dll": {
+            "rid": "win",
+            "assetType": "runtime",
+            "assemblyVersion": "9.0.0.2",
+            "fileVersion": "9.0.225.6610"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "SilentGuardian/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "System.CodeDom/9.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-VnlzS7afE8LaXXwKdHOe2D6FcDekqThzU1E67CONV7gp71q3zposqcSeXH+PxARMXC5j31efwXrxP8VGvD70Ug==",
+      "path": "system.codedom/9.0.2",
+      "hashPath": "system.codedom.9.0.2.nupkg.sha512"
+    },
+    "System.Diagnostics.EventLog/9.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-i+Fe6Fpst/onydFLBGilCr/Eh9OFdlaTU/c3alPp6IbLZXQJOgpIu3l4MOnmsN8fDYq5nAyHSqNIJesc74Yw3Q==",
+      "path": "system.diagnostics.eventlog/9.0.2",
+      "hashPath": "system.diagnostics.eventlog.9.0.2.nupkg.sha512"
+    },
+    "System.Management/9.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-U6SXFe1kfJySAvcPPdbdb+fycaY+3c/KV0PwTjurvrALMnlSm37s5z8zcoI7qbkV2kYhxiLfsZRGiF0XeSsqSQ==",
+      "path": "system.management/9.0.2",
+      "hashPath": "system.management.9.0.2.nupkg.sha512"
+    },
+    "System.ServiceProcess.ServiceController/9.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-c69iiGEZ4xUv8aZTFd45K4SM08L2NLepihJ5vAb7Ekzgtk2Y8bUwt+3PQVstUl020dXW16R8hpiq/RZuzFFVyw==",
+      "path": "system.serviceprocess.servicecontroller/9.0.2",
+      "hashPath": "system.serviceprocess.servicecontroller.9.0.2.nupkg.sha512"
+    }
+  }
+}
